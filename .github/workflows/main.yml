@@ -1,0 +1,31 @@
+name: CI
+
+on: [push]
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout Repo
+      uses: actions/checkout@master
+      with:
+        lfs: true
+
+    - name: Install Parcel
+      run: npm install parcel-bundler
+
+    - name: Install Dependecies
+      run: npm install
+      
+    - name: Build
+      run: npm run build-gh
+      
+    - name: Deploy
+      uses: JamesIves/github-pages-deploy-action@releases/v3
+      with:
+        ACCESS_TOKEN: ${{ secrets.GHP_TOKEN }}
+        BRANCH: gh-pages # The branch the action should deploy to.
+        FOLDER: dist
+        CLEAN: true
