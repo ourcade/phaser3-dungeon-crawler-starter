@@ -1,6 +1,8 @@
 name: CI
 
-on: [push]
+on:
+  push:
+    branches: master
 
 jobs:
   build:
@@ -35,14 +37,24 @@ jobs:
         FOLDER: dist
         CLEAN: true
         
+    - name: Delete Previous latest Release
+      uses: author/action-rollback@stable
+      with:
+        # Using a tag name
+        tag: 'latest'
+        # Always delete the tag, even if a release is not associated with it.
+        always_delete_tag: true
+      env:
+        GITHUB_TOKEN: ${{ secrets.GHP_TOKEN }}
+        
     - name: Create Release
       id: create_release
       uses: actions/create-release@v1
       env:
         GITHUB_TOKEN: ${{ secrets.GHP_TOKEN }}
       with:
-        tag_name: ${{ github.sha }}
-        release_name: Release ${{ github.sha }}
+        tag_name: 'latest'
+        release_name: 'latest'
         draft: false
         prerelease: false
 
