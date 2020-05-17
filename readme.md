@@ -22,7 +22,7 @@ npm run start
 
 If you don't have `git-lfs` installed then get it here: https://git-lfs.github.com
 
-All the image and audio files in this repository is stored with `git-lfs`. Alternatively you can download a zip instead.
+All the image and audio files in this repository is stored with `git-lfs`. Alternatively you can [download a zip from latest release here](https://github.com/ourcade/phaser3-dungeon-crawler-starter/releases/tag/latest).
 
 ## Credits
 
