@@ -42,8 +42,6 @@ jobs:
       with:
         # Using a tag name
         tag: 'latest'
-        # Always delete the tag, even if a release is not associated with it.
-        always_delete_tag: true
       env:
         GITHUB_TOKEN: ${{ secrets.GHP_TOKEN }}
         
