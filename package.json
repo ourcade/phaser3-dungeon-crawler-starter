@@ -4,8 +4,8 @@
 	"description": "A template project for Phaser3 using Parceljs",
 	"scripts": {
 		"start": "parcel src/index.html -p 8000",
-		"build": "parcel build src/index.html --out-dir dist",
-		"build-gh": "parcel build src/index.html --out-dir dist --public-url /phaser3-dungeon-crawler-starter/",
+		"build": "parcel build src/index.html --dest-dir dist",
+		"build-gh": "parcel build src/index.html --dest-dir dist --public-url /phaser3-dungeon-crawler-starter/",
 		"test": "echo \"Error: no test specified\" && exit 1"
 	},
 	"author": "supertommy",
@@ -23,6 +23,7 @@
 		"typescript": "^3.8.3"
 	},
 	"dependencies": {
+		"parcel-bundler": "^1.12.5",
 		"phaser": "^3.22.0"
 	},
 	"parcelCleanPaths": [
